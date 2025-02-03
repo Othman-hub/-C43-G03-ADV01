@@ -28,8 +28,25 @@ namespace Assignment01ِADV
             return result;
         }
         #endregion
+        #region 5.	Given a string, find the first non-repeated character in it and return its index. If there is no such character, return 
+        public static string UniqChar(string s)
+        {
+            for (int i = 0; i < s.Length-1; i++)
+            {
+                for (int j = i+1;j < s.Length; j++)
+                {
+                    if (s[i] == s[j])
+                    {
+                        s = s.Replace(s[j].ToString(),"");
+                        i = 0; j = 0;
+                    }
+                }
+            }
+            return s == "" ? "Not Found" : $"{s[0]}";
+        }
+        #endregion
 
-        
+
         static void Main(string[] args)
         {
             //ArrayList list = new ArrayList() { 1,2,3,4,5};
@@ -38,9 +55,12 @@ namespace Assignment01ِADV
             //{
             //    Console.WriteLine(item);
             //}
-            FixedSizeList<int> list = new FixedSizeList<int>(3);
-            list.GetItem(1);
+            //FixedSizeList<int> list = new FixedSizeList<int>(3);
+            //list.GetItem(1);
             
+            Console.WriteLine(UniqChar("aacccbbfffxaaa"));
+            
+
 
         }
     }
